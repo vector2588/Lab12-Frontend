@@ -13,6 +13,8 @@ import NProgress from 'nprogress'
 import EventService from '@/services/EventService.js'
 import GStore from '@/store'
 import OrganizerService from '@/services/OrganizerService.js'
+import RegisterForm from '@/views/Registration.vue'
+
 
 const routes = [
   {
@@ -25,6 +27,11 @@ const routes = [
     path: '/about',
     name: 'About',
     component: About
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: RegisterForm
   },
   {
     path: '/add-event',

@@ -36,7 +36,22 @@ export default {
         } else {
             return false
         }
-
-
+    },
+    saveUser(user) {
+        return apiClient
+            .post('/auth/account', {
+                username: user.username,
+                email: user.email,
+                password: user.password
+            })
+            .then((response) => {
+                localStorage.setItem('token', response.data.token)
+                localStorage.setItem('user', JSON.stringify(response.data.user))
+                GStore.currentUser = response.data.user
+                return Promise.resolve(response.data)
+            })
+            .catch((error) => {
+                return Promise.reject(error)
+            })
     }
 }
