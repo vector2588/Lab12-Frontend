@@ -2,7 +2,7 @@ name: Deploy to Aws Docker on merge
 'on':
   push:
     branches:
-      - prod-docker
+      - prod
 jobs:
   docker:
     runs-on: ubuntu-latest    
@@ -28,7 +28,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: [your dockerhub id]/331-lab06:latest
+          tags: vector2588/331-lab06:latest
       - 
         name: prepare the docker-compose run
         run: |
